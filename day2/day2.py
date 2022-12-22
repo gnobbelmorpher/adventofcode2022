@@ -27,4 +27,4 @@ def chooser(first, second):
 
 # for line in text: 
 #     if line.strip()!='':
-        
+
