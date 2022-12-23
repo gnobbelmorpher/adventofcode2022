@@ -1,4 +1,5 @@
 f = open('input.txt')
+# f = open('input2.txt')
 text = f.readlines()
 score = 0
 
@@ -23,9 +24,18 @@ print(score)
 
 def chooser(first, second): 
     # loose for X, draw for Y, win for Z:
-    return chr(ord(first) + 23 + (ord(second)-88+1)%3)
+    # if second == 'Y': 
+    #     return chr(ord(first)+23)
+    # elif second == 'X': 
+    #     return chr((ord(first)-23-1)%3 + 88)
+    # elif second == 'Z':
+    #     return chr((ord(first)-23+1)%3 + 88)
+    return chr((ord(first) - 23 + (ord(second)-89))%3 + 88)
 
-
+newscore = 0
 for line in text: 
     if line.strip()!='':
-
+        first, second = line.split()
+        # print(first, second, chooser(first, second))
+        newscore += scorer(first, chooser(first, second))
+print(newscore)
