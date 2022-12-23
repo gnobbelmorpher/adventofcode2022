@@ -19,12 +19,13 @@ for line in text:
         score += scorer(first, second)
 print(score)
 
-#new rules: 
+#new rules (return second in the old mannor to count): 
 
 def chooser(first, second): 
-    if second == 'X':
-        return ord(first)+(ord(second)-87) 
+    # loose for X, draw for Y, win for Z:
+    return chr(ord(first) + 23 + (ord(second)-88+1)%3)
 
-# for line in text: 
-#     if line.strip()!='':
+
+for line in text: 
+    if line.strip()!='':
 
